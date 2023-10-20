@@ -13,11 +13,9 @@ import app.menu.Order;
 
 public class ConsoleFactory {
 
-	private final Input input;
 	private final Console baseConsole;
 
 	public ConsoleFactory(Input input) {
-		this.input = input;
 		this.baseConsole = new BaseConsole(input);
 	}
 
