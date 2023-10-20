@@ -3,7 +3,7 @@ package app.command.implement;
 import java.util.List;
 
 import app.command.Command;
-import app.io.console.decorator.ConsoleFactory;
+import app.io.console.ConsoleFactory;
 import app.menu.Category;
 import app.menu.CategoryMenu;
 import app.menu.Item;

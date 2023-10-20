@@ -9,7 +9,7 @@ import app.command.implement.OrderCommand;
 import app.command.implement.PurchaseCommand;
 import app.command.implement.SalesRecordCommand;
 import app.io.console.Console;
-import app.io.console.decorator.ConsoleFactory;
+import app.io.console.ConsoleFactory;
 import app.io.input.ScannerInput;
 import app.menu.Category;
 import app.menu.Order;
