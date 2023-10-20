@@ -47,7 +47,7 @@ public class CategoryMenu extends ConsoleDecorator {
 	}
 
 	private void validate(int input) {
-		int categoryCount = Category.values().length;
+		int categoryCount = Category.getCategoryItems(categoryNumber).size();
 
 		if (input < 0 || categoryCount < input) {
 			throw new IllegalArgumentException();
