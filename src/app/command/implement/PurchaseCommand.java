@@ -30,7 +30,7 @@ public class PurchaseCommand extends Command {
 		int purchaseNumber = console.request();
 
 		if (purchaseNumber == 1) {
-			CategoryMenu categoryMenu = Category.getCategoryItems(categoryNumber).get(itemNumber - 1);
+			CategoryMenu categoryMenu = Category.getItem(categoryNumber, itemNumber);
 			Item item = new Item(categoryMenu);
 			Order order = new Order(List.of(item));
 
