@@ -24,7 +24,12 @@ public class CafeKioskApp {
 	private final MenuChoiceProcessor menuChoiceProcessor;
 	private static int waitingNumber = 1;
 	private Console console;
-	private final int menuCount = Category.values().length + 2;
+
+	private final int SALES_RECORD_NUMBER = 0;
+	private final int MENU_START_NUMBER = 1;
+	private final int MENU_END_NUMBER = Category.values().length;
+	private final int ORDER_NUMBER = Category.values().length + 1;
+	private final int ORDER_CANCEL_NUMBER = Category.values().length + 2;
 
 	public CafeKioskApp(Input input) {
 		this.input = input;
@@ -42,10 +47,10 @@ public class CafeKioskApp {
 				console = new Welcome(new BaseConsole(input));
 				int menuNumber = console.request();
 
-				if (menuNumber == 0) {
+				if (menuNumber == SALES_RECORD_NUMBER) {
 					console = new Record(new BaseConsole(input), salesRecord);
 					console.request();
-				} else if (1 <= menuNumber && menuNumber <= menuCount - 2) {
+				} else if (MENU_START_NUMBER <= menuNumber && menuNumber <= MENU_END_NUMBER) {
 					console = new CategoryMenu(new BaseConsole(input), menuNumber);
 					int itemNumber = console.request();
 
@@ -58,7 +63,7 @@ public class CafeKioskApp {
 
 						cart.add(order);
 					}
-				} else if (menuNumber == menuCount - 1) {
+				} else if (menuNumber == ORDER_NUMBER) {
 					if (cart.isEmpty()) {
 						System.out.println("장바구니가 비어있습니다.");
 						continue;
@@ -80,7 +85,7 @@ public class CafeKioskApp {
 					salesRecord.addAll(cart);
 					cart.clear();
 					waitForThreeSeconds();
-				} else if (menuNumber == menuCount) {
+				} else if (menuNumber == ORDER_CANCEL_NUMBER) {
 					console = new OrderCancel(new BaseConsole(input));
 					int checkNumber = console.request();
 					if (checkNumber == 1) {
