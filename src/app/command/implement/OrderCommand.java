@@ -1,7 +1,8 @@
-package app.command;
+package app.command.implement;
 
 import java.util.List;
 
+import app.command.Command;
 import app.io.console.Console;
 import app.menu.Order;
 

@@ -1,5 +1,6 @@
-package app.command;
+package app.command.implement;
 
+import app.command.Command;
 import app.io.console.Console;
 
 public class SalesRecordCommand extends Command {

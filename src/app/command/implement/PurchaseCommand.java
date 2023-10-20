@@ -1,7 +1,8 @@
-package app.command;
+package app.command.implement;
 
 import java.util.List;
 
+import app.command.Command;
 import app.io.console.decorator.ConsoleFactory;
 import app.menu.Category;
 import app.menu.CategoryMenu;
