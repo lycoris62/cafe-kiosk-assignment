@@ -4,7 +4,7 @@
 > 요구사항 정의서의 요구사항만 정해주었으며, 이후의 설계나 구현은 전적으로 본인이 했습니다. 
 
 ### 유스케이스 다이어그램
-![자바개인과제_카페키오스크](https://github.com/lycoris62/cafe-kiosk-assignment/assets/55584664/47df33cd-ef73-4a0d-8556-9f18e802e8f0)
+![자바개인과제_카페키오스크-유스케이스 다이어그램2](https://github.com/lycoris62/cafe-kiosk-assignment/assets/55584664/d28d3a0b-38e8-4854-80bd-bfa68aabc511)
 
 ### 플로우 차트 
 <img width="2242" alt="카패키오스크_플로우차트" src="https://github.com/lycoris62/cafe-kiosk-assignment/assets/55584664/d84010e2-8635-4c3f-b1fd-373b5b8e3943">
