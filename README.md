@@ -8,6 +8,7 @@
 
 ### 플로우 차트 
 <img width="2242" alt="카패키오스크_플로우차트" src="https://github.com/lycoris62/cafe-kiosk-assignment/assets/55584664/d84010e2-8635-4c3f-b1fd-373b5b8e3943">
+<img width="2242" alt="카패키오스크_플로우차트 2 2" src="https://github.com/lycoris62/cafe-kiosk-assignment/assets/55584664/d86a7515-e852-4ea1-878a-7c1b0c7e07a7">
 
 출력 : 파랑     
 입력 : 초록     
