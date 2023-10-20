@@ -52,6 +52,14 @@ public enum Category {
 		return category.categoryItems;
 	}
 
+	public static CategoryMenu getItem(int categoryNumber, int itemNumber) {
+		return getCategoryItems(categoryNumber).get(itemNumber - 1);
+	}
+
+	public static int getCategorySize(int categoryNumber) {
+		return getCategoryItems(categoryNumber).size();
+	}
+
 	@Override
 	public String toString() {
 		return String.format("%-20s | %s", menuName, description);
