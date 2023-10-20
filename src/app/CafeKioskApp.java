@@ -1,13 +1,34 @@
 package app;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import app.io.console.BaseConsole;
+import app.io.console.Console;
+import app.io.console.decorator.CategoryMenu;
+import app.io.console.decorator.OrderCancel;
+import app.io.console.decorator.OrderProcess;
+import app.io.console.decorator.Purchase;
+import app.io.console.decorator.Record;
+import app.io.console.decorator.Welcome;
 import app.io.input.Input;
 import app.io.input.ScannerInput;
+import app.menu.Category;
+import app.menu.MenuChoiceProcessor;
+import app.menu.Order;
 
 public class CafeKioskApp {
 	private final Input input;
+	private final List<Order> cart = new ArrayList<>();
+	private final List<Order> salesRecord = new ArrayList<>();
+	private final MenuChoiceProcessor menuChoiceProcessor;
+	private static int waitingNumber = 1;
+	private Console console;
+	private final int menuCount = Category.values().length + 2;
 
 	public CafeKioskApp(Input input) {
 		this.input = input;
+		this.menuChoiceProcessor = new MenuChoiceProcessor();
 	}
 
 	public static void run() {
@@ -18,11 +39,65 @@ public class CafeKioskApp {
 	private void start() {
 		while (true) {
 			try {
-				String str = input.read();
-				System.out.println("str = " + str);
+				console = new Welcome(new BaseConsole(input));
+				int menuNumber = console.request();
+
+				if (menuNumber == 0) {
+					console = new Record(new BaseConsole(input), salesRecord);
+					console.request();
+				} else if (1 <= menuNumber && menuNumber <= menuCount - 2) {
+					console = new CategoryMenu(new BaseConsole(input), menuNumber);
+					int itemNumber = console.request();
+
+					console = new Purchase(new BaseConsole(input), menuNumber, itemNumber);
+					int purchaseNumber = console.request();
+
+					if (purchaseNumber == 1) {
+						Order order = menuChoiceProcessor.choose(menuNumber, itemNumber);
+						System.out.println(order.getItemList().get(0).getName() + " 가 장바구니에 추가되었습니다.");
+
+						cart.add(order);
+					}
+				} else if (menuNumber == menuCount - 1) {
+					if (cart.isEmpty()) {
+						System.out.println("장바구니가 비어있습니다.");
+						continue;
+					}
+
+					console = new OrderProcess(new BaseConsole(input), cart);
+					int checkNumber = console.request();
+
+					if (checkNumber == 2) {
+						continue;
+					}
+
+					System.out.println("주문이 완료되었습니다!\n");
+					System.out.printf("""
+							대기번호는 [ %d ] 번 입니다.
+							(3초후 메뉴판으로 돌아갑니다.)
+							""", waitingNumber++);
+
+					salesRecord.addAll(cart);
+					cart.clear();
+					waitForThreeSeconds();
+				} else if (menuNumber == menuCount) {
+					console = new OrderCancel(new BaseConsole(input));
+					int checkNumber = console.request();
+					if (checkNumber == 1) {
+						cart.clear();
+						System.out.println("진행하던 주문이 취소되었습니다.\n");
+					}
+				}
 			} catch (IllegalArgumentException e) {
-				System.out.println("잘못된 입력으로 메인 메뉴판 화면으로 이동합니다.");
+				System.out.println("잘못된 입력으로 3초 뒤 메인 메뉴판 화면으로 이동합니다.\n");
+				waitForThreeSeconds();
 			}
 		}
+	}
+
+	private void waitForThreeSeconds() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException ignored) {}
 	}
 }
