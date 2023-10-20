@@ -3,27 +3,20 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.io.console.BaseConsole;
 import app.io.console.Console;
-import app.io.console.decorator.CategoryMenu;
-import app.io.console.decorator.OrderCancel;
-import app.io.console.decorator.OrderProcess;
-import app.io.console.decorator.Purchase;
-import app.io.console.decorator.Record;
-import app.io.console.decorator.Welcome;
-import app.io.input.Input;
+import app.io.console.decorator.ConsoleFactory;
 import app.io.input.ScannerInput;
 import app.menu.Category;
 import app.menu.MenuChoiceProcessor;
 import app.menu.Order;
 
 public class CafeKioskApp {
-	private final Input input;
 	private final List<Order> cart = new ArrayList<>();
 	private final List<Order> salesRecord = new ArrayList<>();
 	private final MenuChoiceProcessor menuChoiceProcessor;
 	private static int waitingNumber = 1;
 	private Console console;
+	private final ConsoleFactory consoleFactory;
 
 	private final int SALES_RECORD_NUMBER = 0;
 	private final int MENU_START_NUMBER = 1;
@@ -31,30 +24,30 @@ public class CafeKioskApp {
 	private final int ORDER_NUMBER = Category.values().length + 1;
 	private final int ORDER_CANCEL_NUMBER = Category.values().length + 2;
 
-	public CafeKioskApp(Input input) {
-		this.input = input;
+	public CafeKioskApp() {
 		this.menuChoiceProcessor = new MenuChoiceProcessor();
+		this.consoleFactory = new ConsoleFactory(new ScannerInput());
 	}
 
 	public static void run() {
-		CafeKioskApp app = new CafeKioskApp(new ScannerInput());
+		CafeKioskApp app = new CafeKioskApp();
 		app.start();
 	}
 
 	private void start() {
 		while (true) {
 			try {
-				console = new Welcome(new BaseConsole(input));
+				console = consoleFactory.getWelcome();
 				int menuNumber = console.request();
 
 				if (menuNumber == SALES_RECORD_NUMBER) {
-					console = new Record(new BaseConsole(input), salesRecord);
+					console = consoleFactory.getRecord(salesRecord);
 					console.request();
 				} else if (MENU_START_NUMBER <= menuNumber && menuNumber <= MENU_END_NUMBER) {
-					console = new CategoryMenu(new BaseConsole(input), menuNumber);
+					console = consoleFactory.getCategoryMenu(menuNumber);
 					int itemNumber = console.request();
 
-					console = new Purchase(new BaseConsole(input), menuNumber, itemNumber);
+					console = consoleFactory.getPurchase(menuNumber, itemNumber);
 					int purchaseNumber = console.request();
 
 					if (purchaseNumber == 1) {
@@ -69,7 +62,7 @@ public class CafeKioskApp {
 						continue;
 					}
 
-					console = new OrderProcess(new BaseConsole(input), cart);
+					console = consoleFactory.getOrderProcess(cart);
 					int checkNumber = console.request();
 
 					if (checkNumber == 2) {
@@ -78,15 +71,15 @@ public class CafeKioskApp {
 
 					System.out.println("주문이 완료되었습니다!\n");
 					System.out.printf("""
-							대기번호는 [ %d ] 번 입니다.
-							(3초후 메뉴판으로 돌아갑니다.)
-							""", waitingNumber++);
+						대기번호는 [ %d ] 번 입니다.
+						(3초후 메뉴판으로 돌아갑니다.)
+						""", waitingNumber++);
 
 					salesRecord.addAll(cart);
 					cart.clear();
 					waitForThreeSeconds();
 				} else if (menuNumber == ORDER_CANCEL_NUMBER) {
-					console = new OrderCancel(new BaseConsole(input));
+					console = consoleFactory.getOrderCancel();
 					int checkNumber = console.request();
 					if (checkNumber == 1) {
 						cart.clear();
@@ -103,6 +96,7 @@ public class CafeKioskApp {
 	private void waitForThreeSeconds() {
 		try {
 			Thread.sleep(3000);
-		} catch (InterruptedException ignored) {}
+		} catch (InterruptedException ignored) {
+		}
 	}
 }
