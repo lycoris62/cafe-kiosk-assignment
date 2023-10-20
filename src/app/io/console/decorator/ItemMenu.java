@@ -3,8 +3,9 @@ package app.io.console.decorator;
 import app.io.console.Console;
 import app.io.console.ConsoleDecorator;
 import app.menu.Category;
+import app.menu.CategoryMenu;
 
-public class CategoryMenu extends ConsoleDecorator {
+public class ItemMenu extends ConsoleDecorator {
 
 	private final String initMessage = """
 		"오십이도에 오신걸 환영합니다."
@@ -14,7 +15,7 @@ public class CategoryMenu extends ConsoleDecorator {
 	private final String titleFormat = "[ %s MENU ]\n";
 	private int categoryNumber;
 
-	public CategoryMenu(Console console, int categoryNumber) {
+	public ItemMenu(Console console, int categoryNumber) {
 		super(console);
 		this.categoryNumber = categoryNumber;
 	}
@@ -35,7 +36,7 @@ public class CategoryMenu extends ConsoleDecorator {
 
 		int sequence = 1;
 
-		for (app.menu.CategoryMenu item : Category.getCategoryItems(categoryNumber)) {
+		for (CategoryMenu item : Category.getCategoryItems(categoryNumber)) {
 			sb.append(sequence++).append(". ")
 				.append(item.toString())
 				.append("\n");
@@ -47,7 +48,7 @@ public class CategoryMenu extends ConsoleDecorator {
 	}
 
 	private void validate(int input) {
-		int categoryCount = Category.getCategoryItems(categoryNumber).size();
+		int categoryCount = Category.getCategorySize(categoryNumber);
 
 		if (input < 0 || categoryCount < input) {
 			throw new IllegalArgumentException();

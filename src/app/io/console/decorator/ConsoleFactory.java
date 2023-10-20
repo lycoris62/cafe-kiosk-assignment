@@ -34,7 +34,7 @@ public class ConsoleFactory {
 	}
 
 	public Console getCategoryMenu(int categoryNumber) {
-		return new CategoryMenu(baseConsole, categoryNumber);
+		return new ItemMenu(baseConsole, categoryNumber);
 	}
 
 	public Console getPurchase(int categoryNumber, int itemNumber) {
