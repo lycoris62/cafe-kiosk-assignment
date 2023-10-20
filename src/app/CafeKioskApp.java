@@ -43,7 +43,7 @@ public class CafeKioskApp {
 				setCommand(menuNumber);
 				runner.run();
 			} catch (IllegalArgumentException e) {
-				System.out.println("잘못된 입력으로 3초 뒤 메인 메뉴판 화면으로 이동합니다.\n");
+				System.out.println("잘못된 입력으로 3초 뒤 메인 메뉴판 화면으로 이동합니다.");
 				waitForThreeSeconds();
 			}
 		}
