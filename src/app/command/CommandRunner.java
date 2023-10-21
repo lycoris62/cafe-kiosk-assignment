@@ -1,5 +1,7 @@
 package app.command;
 
+import app.command.implement.WelcomeCommand;
+
 public class CommandRunner {
 
 	private Command command;
@@ -10,5 +12,10 @@ public class CommandRunner {
 
 	public void run() {
 		command.execute();
+	}
+
+	public int init() {
+		setCommand(new WelcomeCommand());
+		return command.console.request();
 	}
 }
