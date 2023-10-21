@@ -1,6 +1,6 @@
 package app.menu;
 
-public class Item extends MenuItem {
+public class Item extends Menu {
 
 	private final int price;
 
