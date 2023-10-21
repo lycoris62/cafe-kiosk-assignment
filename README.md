@@ -3,6 +3,9 @@
 > 집 근처의 개인카페를 대상으로 구현했으며, 자세한 기획서는 [Wiki](https://github.com/lycoris62/cafe-kiosk-assignment/wiki)를 참고하시면 됩니다.    
 > 요구사항 정의서의 요구사항만 정해주었으며, 이후의 설계나 구현은 전적으로 본인이 했습니다. 
 
+### 참고 메뉴판
+![menu_cafe](https://github.com/lycoris62/cafe-kiosk-assignment/assets/55584664/09130298-c2f3-4a5a-9d7d-a1175bd1e0d4)
+
 ### 유스케이스 다이어그램
 ![자바개인과제_카페키오스크-유스케이스 다이어그램2](https://github.com/lycoris62/cafe-kiosk-assignment/assets/55584664/d28d3a0b-38e8-4854-80bd-bfa68aabc511)
 
