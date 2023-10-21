@@ -6,14 +6,14 @@ import app.io.console.decorator.OrderProcess;
 import app.io.console.decorator.Purchase;
 import app.io.console.decorator.Record;
 import app.io.console.decorator.Welcome;
-import app.io.input.Input;
+import app.io.input.ScannerInput;
 
 public class ConsoleFactory {
 
 	private final Console baseConsole;
 
-	public ConsoleFactory(Input input) {
-		this.baseConsole = new BaseConsole(input);
+	public ConsoleFactory() {
+		this.baseConsole = new BaseConsole(new ScannerInput());
 	}
 
 	public Console getWelcome() {
