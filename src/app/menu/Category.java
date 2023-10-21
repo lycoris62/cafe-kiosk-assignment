@@ -60,6 +60,10 @@ public enum Category {
 		return getCategoryItems(categoryNumber).size();
 	}
 
+	public static int size() {
+		return Category.values().length;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("%-20s | %s", menuName, description);
