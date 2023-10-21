@@ -1,25 +1,23 @@
 package app.command.implement;
 
-import java.util.List;
-
 import app.command.Command;
+import app.container.Cart;
+import app.container.SalesRecord;
 import app.io.console.Console;
-import app.menu.Order;
 
 public class OrderCommand extends Command {
 
-	private final List<Order> cart;
-	private final List<Order> salesRecord;
 	private static int waitingNumber = 1;
 
-	public OrderCommand(Console console, List<Order> cart, List<Order> salesRecord) {
+	public OrderCommand(Console console) {
 		this.console = console;
-		this.cart = cart;
-		this.salesRecord = salesRecord;
 	}
 
 	@Override
 	public void execute() {
+		Cart cart = Cart.getInstance();
+		SalesRecord salesRecord = SalesRecord.getInstance();
+
 		if (cart.isEmpty()) {
 			System.out.println("장바구니가 비어있습니다.");
 			return;
@@ -37,8 +35,9 @@ public class OrderCommand extends Command {
 						(3초후 메뉴판으로 돌아갑니다.)
 						""", waitingNumber++);
 
-		salesRecord.addAll(cart);
+		salesRecord.record(cart.getAllOrders());
 		cart.clear();
+
 		waitForThreeSeconds();
 	}
 

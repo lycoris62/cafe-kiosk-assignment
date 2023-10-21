@@ -1,8 +1,5 @@
 package app;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import app.command.CommandRunner;
 import app.command.implement.OrderCancelCommand;
 import app.command.implement.OrderCommand;
@@ -12,12 +9,9 @@ import app.io.console.Console;
 import app.io.console.ConsoleFactory;
 import app.io.input.ScannerInput;
 import app.menu.Category;
-import app.menu.Order;
 
 public class CafeKioskApp {
 	private final ConsoleFactory consoleFactory;
-	private final List<Order> cart = new ArrayList<>();
-	private final List<Order> salesRecord = new ArrayList<>();
 	private final CommandRunner runner = new CommandRunner();
 
 	private final int SALES_RECORD_NUMBER = 0;
@@ -51,13 +45,13 @@ public class CafeKioskApp {
 
 	private void setCommand(int menuNumber) {
 		if (menuNumber == SALES_RECORD_NUMBER) {
-			runner.setCommand(new SalesRecordCommand(consoleFactory.getRecord(salesRecord)));
+			runner.setCommand(new SalesRecordCommand(consoleFactory.getRecord()));
 		} else if (MENU_START_NUMBER <= menuNumber && menuNumber <= MENU_END_NUMBER) {
-			runner.setCommand(new PurchaseCommand(consoleFactory, menuNumber, cart));
+			runner.setCommand(new PurchaseCommand(consoleFactory, menuNumber));
 		} else if (menuNumber == ORDER_NUMBER) {
-			runner.setCommand(new OrderCommand(consoleFactory.getOrderProcess(cart), cart, salesRecord));
+			runner.setCommand(new OrderCommand(consoleFactory.getOrderProcess()));
 		} else if (menuNumber == ORDER_CANCEL_NUMBER) {
-			runner.setCommand(new OrderCancelCommand(consoleFactory.getOrderCancel(), cart));
+			runner.setCommand(new OrderCancelCommand(consoleFactory.getOrderCancel()));
 		}
 	}
 

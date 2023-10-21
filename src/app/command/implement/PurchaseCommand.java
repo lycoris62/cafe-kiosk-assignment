@@ -3,6 +3,7 @@ package app.command.implement;
 import java.util.List;
 
 import app.command.Command;
+import app.container.Cart;
 import app.io.console.ConsoleFactory;
 import app.menu.Category;
 import app.menu.CategoryMenu;
@@ -13,12 +14,10 @@ public class PurchaseCommand extends Command {
 
 	private final int categoryNumber;
 	private final ConsoleFactory consoleFactory;
-	private final List<Order> cart;
 
-	public PurchaseCommand(ConsoleFactory consoleFactory, int categoryNumber, List<Order> cart) {
+	public PurchaseCommand(ConsoleFactory consoleFactory, int categoryNumber) {
 		this.consoleFactory = consoleFactory;
 		this.categoryNumber = categoryNumber;
-		this.cart = cart;
 	}
 
 	@Override
@@ -36,7 +35,8 @@ public class PurchaseCommand extends Command {
 
 			System.out.println(order.getItemList().get(0).getName() + " 가 장바구니에 추가되었습니다.");
 
-			cart.add(order);
+			Cart cart = Cart.getInstance();
+			cart.put(order);
 		}
 	}
 }
