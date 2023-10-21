@@ -4,16 +4,11 @@ import app.command.CommandRunner;
 
 public class CafeKioskApp {
 
-	private final CommandRunner commandRunner = new CommandRunner();
+	private static final CommandRunner commandRunner = new CommandRunner();
 
 	private CafeKioskApp() {}
 
 	public static void run() {
-		CafeKioskApp app = new CafeKioskApp();
-		app.start();
-	}
-
-	private void start() {
 		while (true) {
 			try {
 				commandRunner.init();
@@ -25,7 +20,7 @@ public class CafeKioskApp {
 		}
 	}
 
-	private void waitForThreeSeconds() {
+	private static void waitForThreeSeconds() {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException ignored) {
