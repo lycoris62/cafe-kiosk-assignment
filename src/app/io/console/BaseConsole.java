@@ -1,6 +1,6 @@
 package app.io.console;
 
-import app.io.input.Input;
+import app.io.console.input.Input;
 
 public class BaseConsole implements Console {
 

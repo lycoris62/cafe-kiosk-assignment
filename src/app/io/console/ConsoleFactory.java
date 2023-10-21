@@ -6,7 +6,7 @@ import app.io.console.decorator.OrderProcess;
 import app.io.console.decorator.Purchase;
 import app.io.console.decorator.Record;
 import app.io.console.decorator.Welcome;
-import app.io.input.ScannerInput;
+import app.io.console.input.ScannerInput;
 
 public class ConsoleFactory {
 
