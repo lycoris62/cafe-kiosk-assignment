@@ -3,14 +3,13 @@ package app.command.implement;
 import app.command.Command;
 import app.container.Cart;
 import app.container.SalesRecord;
-import app.io.console.Console;
 
 public class OrderCommand extends Command {
 
 	private static int waitingNumber = 1;
 
-	public OrderCommand(Console console) {
-		this.console = console;
+	public OrderCommand() {
+		this.console = consoleFactory.getOrderProcess();
 	}
 
 	@Override

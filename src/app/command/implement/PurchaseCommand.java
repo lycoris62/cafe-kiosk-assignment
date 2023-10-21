@@ -4,7 +4,6 @@ import java.util.List;
 
 import app.command.Command;
 import app.container.Cart;
-import app.io.console.ConsoleFactory;
 import app.menu.Category;
 import app.menu.CategoryMenu;
 import app.menu.Item;
@@ -13,10 +12,8 @@ import app.menu.Order;
 public class PurchaseCommand extends Command {
 
 	private final int categoryNumber;
-	private final ConsoleFactory consoleFactory;
 
-	public PurchaseCommand(ConsoleFactory consoleFactory, int categoryNumber) {
-		this.consoleFactory = consoleFactory;
+	public PurchaseCommand(int categoryNumber) {
 		this.categoryNumber = categoryNumber;
 	}
 

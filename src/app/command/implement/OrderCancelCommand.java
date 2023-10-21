@@ -2,17 +2,16 @@ package app.command.implement;
 
 import app.command.Command;
 import app.container.Cart;
-import app.io.console.Console;
 
 public class OrderCancelCommand extends Command {
 
-	public OrderCancelCommand(Console console) {
-		this.console = console;
+	public OrderCancelCommand() {
+		this.console = consoleFactory.getOrderCancel();
 	}
 
 	@Override
 	public void execute() {
-		int checkNumber = console.request();
+		int checkNumber = this.console.request();
 		if (checkNumber == 1) {
 			Cart cart = Cart.getInstance();
 			cart.clear();
