@@ -1,12 +1,12 @@
-package app.io.console;
+package app.console;
 
-import app.io.console.decorator.ItemMenu;
-import app.io.console.decorator.OrderCancel;
-import app.io.console.decorator.OrderProcess;
-import app.io.console.decorator.Purchase;
-import app.io.console.decorator.Record;
-import app.io.console.decorator.Welcome;
-import app.io.console.input.ScannerInput;
+import app.console.decorator.Purchase;
+import app.console.input.ScannerInput;
+import app.console.decorator.ItemMenu;
+import app.console.decorator.OrderCancel;
+import app.console.decorator.OrderProcess;
+import app.console.decorator.Record;
+import app.console.decorator.Welcome;
 
 public class ConsoleFactory {
 

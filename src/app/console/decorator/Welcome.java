@@ -1,7 +1,7 @@
-package app.io.console.decorator;
+package app.console.decorator;
 
-import app.io.console.Console;
-import app.io.console.ConsoleDecorator;
+import app.console.Console;
+import app.console.ConsoleDecorator;
 import app.menu.Category;
 
 public class Welcome extends ConsoleDecorator {

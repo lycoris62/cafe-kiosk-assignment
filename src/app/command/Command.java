@@ -1,7 +1,7 @@
 package app.command;
 
-import app.io.console.Console;
-import app.io.console.ConsoleFactory;
+import app.console.Console;
+import app.console.ConsoleFactory;
 
 public abstract class Command {
 

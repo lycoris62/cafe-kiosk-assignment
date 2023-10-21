@@ -1,4 +1,4 @@
-package app.io.console.input;
+package app.console.input;
 
 import java.util.Scanner;
 

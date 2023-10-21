@@ -1,4 +1,4 @@
-package app.io.console;
+package app.console;
 
 public interface Console {
 	int request();

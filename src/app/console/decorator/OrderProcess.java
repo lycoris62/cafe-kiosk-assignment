@@ -1,8 +1,8 @@
-package app.io.console.decorator;
+package app.console.decorator;
 
+import app.console.Console;
+import app.console.ConsoleDecorator;
 import app.container.Cart;
-import app.io.console.Console;
-import app.io.console.ConsoleDecorator;
 
 public class OrderProcess extends ConsoleDecorator {
 
