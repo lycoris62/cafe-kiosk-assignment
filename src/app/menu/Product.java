@@ -1,6 +1,6 @@
 package app.menu;
 
-public enum CategoryMenu {
+public enum Product {
 
 	// Coffee
 	AMERICANO("아메리카노", 4000, "아메리카노 입니다."),
@@ -39,7 +39,7 @@ public enum CategoryMenu {
 	private final int price;
 	private final String description;
 
-	CategoryMenu(String menuName, int price, String description) {
+	Product(String menuName, int price, String description) {
 		this.menuName = menuName;
 		this.price = price;
 		this.description = description;

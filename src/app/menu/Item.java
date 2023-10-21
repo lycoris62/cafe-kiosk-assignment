@@ -4,9 +4,9 @@ public class Item extends MenuItem {
 
 	private final int price;
 
-	public Item(CategoryMenu categoryMenu) {
-		super(categoryMenu.getMenuName(), categoryMenu.getDescription());
-		this.price = categoryMenu.getPrice();
+	public Item(Product product) {
+		super(product.getMenuName(), product.getDescription());
+		this.price = product.getPrice();
 	}
 
 	public int getPrice() {

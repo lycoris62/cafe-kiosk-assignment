@@ -5,7 +5,7 @@ import java.util.List;
 import app.command.Command;
 import app.container.Cart;
 import app.menu.Category;
-import app.menu.CategoryMenu;
+import app.menu.Product;
 import app.menu.Item;
 import app.menu.Order;
 
@@ -26,8 +26,8 @@ public class PurchaseCommand extends Command {
 		int purchaseNumber = console.request();
 
 		if (purchaseNumber == 1) {
-			CategoryMenu categoryMenu = Category.getItem(categoryNumber, itemNumber);
-			Item item = new Item(categoryMenu);
+			Product product = Category.getItem(categoryNumber, itemNumber);
+			Item item = new Item(product);
 			Order order = new Order(List.of(item));
 
 			System.out.println(order.getItemList().get(0).getName() + " 가 장바구니에 추가되었습니다.");

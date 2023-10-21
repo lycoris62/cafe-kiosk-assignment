@@ -3,7 +3,7 @@ package app.console.decorator;
 import app.console.Console;
 import app.console.ConsoleDecorator;
 import app.menu.Category;
-import app.menu.CategoryMenu;
+import app.menu.Product;
 
 public class ItemMenu extends ConsoleDecorator {
 
@@ -36,7 +36,7 @@ public class ItemMenu extends ConsoleDecorator {
 
 		int sequence = 1;
 
-		for (CategoryMenu item : Category.getCategoryItems(categoryNumber)) {
+		for (Product item : Category.getCategoryItems(categoryNumber)) {
 			sb.append(sequence++).append(". ")
 				.append(item.toString())
 				.append("\n");

@@ -1,6 +1,6 @@
 package app.menu;
 
-import static app.menu.CategoryMenu.*;
+import static app.menu.Product.*;
 
 import java.util.List;
 
@@ -39,20 +39,20 @@ public enum Category {
 
 	private final String menuName;
 	private final String description;
-	private final List<app.menu.CategoryMenu> categoryItems;
+	private final List<Product> categoryItems;
 
-	Category(String menuName, String description, List<app.menu.CategoryMenu> categoryItems) {
+	Category(String menuName, String description, List<Product> categoryItems) {
 		this.menuName = menuName;
 		this.description = description;
 		this.categoryItems = categoryItems;
 	}
 
-	public static List<CategoryMenu> getCategoryItems(int categoryNumber) {
+	public static List<Product> getCategoryItems(int categoryNumber) {
 		Category category = Category.values()[categoryNumber - 1];
 		return category.categoryItems;
 	}
 
-	public static CategoryMenu getItem(int categoryNumber, int itemNumber) {
+	public static Product getItem(int categoryNumber, int itemNumber) {
 		return getCategoryItems(categoryNumber).get(itemNumber - 1);
 	}
 
