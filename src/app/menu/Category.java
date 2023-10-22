@@ -72,6 +72,12 @@ public enum Category {
 		}
 	}
 
+	public static void showCategoryProduct(int categoryNumber) {
+		for (Product item : Category.getCategoryItems(categoryNumber)) {
+			System.out.println(item.toString());
+		}
+	}
+
 	@Override
 	public String toString() {
 		return String.format("%d. %-20s | %s", categoryId, menuName, description);
