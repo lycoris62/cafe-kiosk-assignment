@@ -5,14 +5,14 @@ import static app.menu.Product.*;
 import java.util.List;
 
 public enum Category {
-	COFFEE("Coffee", "커피 입니다.", List.of(
+	COFFEE(1, "Coffee", "커피 입니다.", List.of(
 		AMERICANO,
 		EINSPANNER,
 		CAFE_LATTE,
 		VANILLA_LATTE,
 		OREO_LATTE)),
 
-	ADE("Ade", "에이드 입니다.", List.of(
+	ADE(2, "Ade", "에이드 입니다.", List.of(
 		GREEN_GRAPE_ADE,
 		GRAPE_FRUIT_ADE,
 		LEMON_ADE,
@@ -20,15 +20,15 @@ public enum Category {
 		STRAWBERRY_ADE,
 		BLUEBERRY_ADE)),
 
-	TEA("Tea", "차 입니다.", List.of(STRAWBERRY_TEA)),
+	TEA(3, "Tea", "차 입니다.", List.of(STRAWBERRY_TEA)),
 
-	LATTE("Latte", "라떼 입니다.", List.of(
+	LATTE(4, "Latte", "라떼 입니다.", List.of(
 		GREEN_TEA_LATTE,
 		EARL_GREY_MILK_TEA,
 		MANGO_CREAM_LATTE,
 		STRAWBERRY_CREAM_LATTE)),
 
-	HANDMADE_DESSERT("Handmade Dessert", "수제 디저트 입니다.", List.of(
+	HANDMADE_DESSERT(5, "Handmade Dessert", "수제 디저트 입니다.", List.of(
 		WHIPPED_CREAM_CROISSANT,
 		GREEN_GRAPE_CROISSANT,
 		OREO_CROISSANT,
@@ -37,11 +37,13 @@ public enum Category {
 		PLAIN_SCONE,
 		EARL_GREY_CORN));
 
+	private final int categoryId;
 	private final String menuName;
 	private final String description;
 	private final List<Product> categoryItems;
 
-	Category(String menuName, String description, List<Product> categoryItems) {
+	Category(int categoryId, String menuName, String description, List<Product> categoryItems) {
+		this.categoryId = categoryId;
 		this.menuName = menuName;
 		this.description = description;
 		this.categoryItems = categoryItems;
