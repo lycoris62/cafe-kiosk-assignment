@@ -26,22 +26,25 @@ public class SalesRecord {
 	}
 
 	public void showAllRecord() {
-		StringBuilder sb = new StringBuilder();
-		int totalPrice = salesRecord.stream()
+		System.out.println("\n[ 총 판매금액 현황 ]");
+		System.out.printf("현재까지 총 판매된 금액은 [ W %.1f ] 입니다.\n\n", getTotalPrice() / 1000.0);
+		System.out.println("[ 총 판매상품 목록 현황 ]");
+		System.out.println("현재까지 총 판매된 상품 목록은 아래와 같습니다.\n");
+		showAllSalesRecord();
+		System.out.println("\n1. 돌아가기");
+	}
+
+	private int getTotalPrice() {
+		return salesRecord.stream()
 			.mapToInt(order -> order.getItemList().get(0).getPrice())
 			.sum();
-		sb.append("\n[ 총 판매금액 현황 ]\n");
-		sb.append(String.format("현재까지 총 판매된 금액은 [ W %.1f ] 입니다.\n\n", totalPrice / 1000.0));
+	}
 
-		sb.append("[ 총 판매상품 목록 현황 ]\n").append("현재까지 총 판매된 상품 목록은 아래와 같습니다.\n\n");
-
+	private void showAllSalesRecord() {
 		for (Order order : salesRecord) {
 			for (Item item : order.getItemList()) {
-				sb.append("- ").append(item.toString()).append("\n");
+				System.out.println("- " + item);
 			}
 		}
-
-		sb.append("\n1. 돌아가기");
-		System.out.println(sb);
 	}
 }
