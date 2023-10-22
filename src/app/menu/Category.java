@@ -62,6 +62,10 @@ public enum Category {
 		return getCategoryItems(categoryNumber).size();
 	}
 
+	public static String getCategoryName(int categoryNumber) {
+		return Category.values()[categoryNumber - 1].menuName;
+	}
+
 	public static int size() {
 		return Category.values().length;
 	}
