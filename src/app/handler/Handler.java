@@ -4,10 +4,10 @@ import app.command.CommandRunner;
 
 public abstract class Handler {
 
-	protected Handler nexthandler;
+	protected Handler nextHandler;
 
 	public Handler setNext(Handler handler) {
-		this.nexthandler = handler;
+		this.nextHandler = handler;
 		return handler;
 	}
 
@@ -21,6 +21,6 @@ public abstract class Handler {
 			return;
 		}
 
-		nexthandler.run(runner, menuNumber);
+		nextHandler.run(runner, menuNumber);
 	}
 }
