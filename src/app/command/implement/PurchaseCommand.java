@@ -24,10 +24,10 @@ public class PurchaseCommand extends Command {
 	public void execute() {
 		int itemNumber = getItemNumber();
 		int purchaseNumber = getCheckNumber(itemNumber);
-		checkPurchase(purchaseNumber, itemNumber);
+		purchaseProcessStart(purchaseNumber, itemNumber);
 	}
 
-	private void checkPurchase(int purchaseNumber, int itemNumber) {
+	private void purchaseProcessStart(int purchaseNumber, int itemNumber) {
 		if (purchaseNumber == PURCHASE_AGREE_NUMBER) {
 			Order order = orderProcess(itemNumber);
 			putCart(order);
