@@ -26,6 +26,7 @@ public class CommandRunner {
 		Handler rootHandler = settingHandler();
 		rootHandler.run(this, menuNumber);
 	}
+
 	private Handler settingHandler() {
 		Handler rootHandler = new SalesRecordHandler();
 		rootHandler
