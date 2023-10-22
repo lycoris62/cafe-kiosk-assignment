@@ -7,12 +7,10 @@ import app.menu.Category;
 public class Welcome extends ConsoleDecorator {
 
 	private final String initMessage = """
+  
 		"오십이도에 오신걸 환영합니다."
 		아래 메뉴판을 보시고 메뉴를 골라 입력해주세요.
-				
 		""";
-	private final String titleFormat = "[ %s MENU ]\n";
-	private final String mainFormat = "%d. %-20s | %s";
 
 	public Welcome(Console console) {
 		super(console);
@@ -28,24 +26,14 @@ public class Welcome extends ConsoleDecorator {
 	}
 
 	private void showMainMenu() {
-		StringBuilder sb = new StringBuilder("\n");
-		sb.append(initMessage);
-		sb.append(String.format(titleFormat, "오십이도"));
+		System.out.println(initMessage);
+		System.out.println("[ 오십이도 MENU ]");
 
-		int sequence = 1;
+		Category.showCategory();
 
-		for (Category category : Category.values()) {
-			sb.append(sequence++).append(". ")
-				.append(category.toString())
-				.append("\n");
-		}
-
-		sb.append("\n").append(String.format(titleFormat, "ORDER"));
-		sb.append(String.format(mainFormat, sequence++, "Order", "장바구니를 확인 후 주문합니다."))
-			.append("\n")
-			.append(String.format(mainFormat, sequence, "Cancel", "진행중인 주문을 취소합니다."));
-
-		System.out.println(sb);
+		System.out.println("[ ORDER MENU ]\n");
+		System.out.printf(String.format("%d. %-20s | %-20s\n", Category.size() + 1, "Order", "장바구니를 확인 후 주문합니다."));
+		System.out.printf(String.format("%d. %-20s | %-20s\n", Category.size() + 2, "Cancel", "진행중인 주문을 취소합니다."));
 	}
 
 	private void validate(int input) {
