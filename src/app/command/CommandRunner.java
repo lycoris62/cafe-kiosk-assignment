@@ -1,6 +1,8 @@
 package app.command;
 
 import app.command.implement.WelcomeCommand;
+import app.console.Console;
+import app.console.ConsoleFactory;
 import app.handler.Handler;
 import app.handler.implement.OrderCancelHandler;
 import app.handler.implement.OrderHandler;
@@ -20,8 +22,8 @@ public class CommandRunner {
 	}
 
 	public void init() {
-		setCommand(new WelcomeCommand());
-		int menuNumber = command.console.request();
+		Console console = ConsoleFactory.getWelcome();
+		int menuNumber = console.request();
 
 		Handler rootHandler = settingHandler();
 		rootHandler.run(this, menuNumber);
