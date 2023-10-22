@@ -1,13 +1,13 @@
 package app.console;
 
 import app.console.input.Input;
+import app.console.input.ScannerInput;
 
 public class BaseConsole implements Console {
 
-	private final Input input;
+	private final Input input = new ScannerInput();
 
-	public BaseConsole(Input input) {
-		this.input = input;
+	public BaseConsole() {
 	}
 
 	@Override
