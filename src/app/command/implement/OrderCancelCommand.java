@@ -1,6 +1,8 @@
 package app.command.implement;
 
 import app.command.Command;
+import app.console.Console;
+import app.console.ConsoleFactory;
 import app.container.Cart;
 
 public class OrderCancelCommand extends Command {
@@ -8,12 +10,12 @@ public class OrderCancelCommand extends Command {
 	private final int ORDER_CANCEL_AGREE_NUMBER = 1;
 
 	public OrderCancelCommand() {
-		this.console = consoleFactory.getOrderCancel();
 	}
 
 	@Override
 	public void execute() {
-		int checkNumber = this.console.request();
+		Console console = ConsoleFactory.getOrderCancel();
+		int checkNumber = console.request();
 		checkOrderCancel(checkNumber);
 	}
 

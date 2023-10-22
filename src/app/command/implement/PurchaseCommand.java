@@ -3,6 +3,8 @@ package app.command.implement;
 import java.util.List;
 
 import app.command.Command;
+import app.console.Console;
+import app.console.ConsoleFactory;
 import app.container.Cart;
 import app.menu.Category;
 import app.menu.Product;
@@ -39,12 +41,12 @@ public class PurchaseCommand extends Command {
 	}
 
 	private int getItemNumber() {
-		console = consoleFactory.getCategoryMenu(categoryNumber);
+		Console console = ConsoleFactory.getCategoryMenu(categoryNumber);
 		return console.request();
 	}
 
 	private int getCheckNumber(int itemNumber) {
-		console = consoleFactory.getPurchase(categoryNumber, itemNumber);
+		Console console = ConsoleFactory.getPurchase(categoryNumber, itemNumber);
 		return console.request();
 	}
 

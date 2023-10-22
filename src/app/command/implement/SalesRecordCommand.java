@@ -1,15 +1,17 @@
 package app.command.implement;
 
 import app.command.Command;
+import app.console.Console;
+import app.console.ConsoleFactory;
 
 public class SalesRecordCommand extends Command {
 
 	public SalesRecordCommand() {
-		this.console = consoleFactory.getRecord();
 	}
 
 	@Override
 	public void execute() {
+		Console console = ConsoleFactory.getRecord();
 		console.request();
 	}
 }
