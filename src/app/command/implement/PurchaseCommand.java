@@ -23,12 +23,12 @@ public class PurchaseCommand extends Command {
 	@Override
 	public void execute() {
 		int itemNumber = getItemNumber();
-		int purchaseNumber = getCheckNumber(itemNumber);
-		purchaseProcessStart(purchaseNumber, itemNumber);
+		int checkNumber = getCheckNumber(itemNumber);
+		purchaseProcessStart(checkNumber, itemNumber);
 	}
 
-	private void purchaseProcessStart(int purchaseNumber, int itemNumber) {
-		if (purchaseNumber == PURCHASE_AGREE_NUMBER) {
+	private void purchaseProcessStart(int checkNumber, int itemNumber) {
+		if (checkNumber == PURCHASE_AGREE_NUMBER) {
 			Order order = orderProcess(itemNumber);
 			putCart(order);
 		}
