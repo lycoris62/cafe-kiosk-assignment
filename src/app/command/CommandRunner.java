@@ -1,6 +1,5 @@
 package app.command;
 
-import app.command.implement.WelcomeCommand;
 import app.console.Console;
 import app.console.ConsoleFactory;
 import app.handler.Handler;
