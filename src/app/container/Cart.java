@@ -1,7 +1,9 @@
 package app.container;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import app.menu.Item;
 import app.menu.Order;
@@ -51,11 +53,22 @@ public class Cart {
 	}
 
 	private void showAllItemInCart() {
-		for (Order order : cart) {
-			for (Item item : order.getItemList()) {
-				System.out.println(item);
-			}
-		}
+		Map<Item, Integer> itemCountMap = getItemCountMap();
+		showItemWithCount(itemCountMap);
+	}
+
+	private Map<Item, Integer> getItemCountMap() {
+		Map<Item, Integer> itemCountMap = new LinkedHashMap<>();
+
+		cart.stream()
+			.flatMap(order -> order.getItemList().stream())
+			.forEach(item -> itemCountMap.compute(item, (itemKind, count) -> count == null ? 1 : count + 1));
+
+		return itemCountMap;
+	}
+
+	private void showItemWithCount(Map<Item, Integer> itemCountMap) {
+		itemCountMap.forEach((item, itemCount) -> System.out.println(item.toStringWithCount(itemCount)));
 	}
 
 	private int getTotalPrice() {
