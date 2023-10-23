@@ -4,7 +4,7 @@ import app.console.Console;
 import app.console.ConsoleDecorator;
 import app.menu.Category;
 
-public class Welcome extends ConsoleDecorator {
+public class WelcomeConsole extends ConsoleDecorator {
 
 	private final String initMessage = """
   
@@ -12,7 +12,7 @@ public class Welcome extends ConsoleDecorator {
 		아래 메뉴판을 보시고 메뉴를 골라 입력해주세요.
 		""";
 
-	public Welcome(Console console) {
+	public WelcomeConsole(Console console) {
 		super(console);
 	}
 

@@ -2,30 +2,30 @@ package app.console.decorator;
 
 import app.console.Console;
 import app.console.ConsoleDecorator;
-import app.container.SalesRecord;
+import app.container.Cart;
 
-public class Record extends ConsoleDecorator {
+public class OrderProcessConsole extends ConsoleDecorator {
 
-	public Record(Console console) {
+	public OrderProcessConsole(Console console) {
 		super(console);
 	}
 
 	@Override
 	public int request() {
-		showSalesRecord();
+		showMessage();
 		int input = super.request();
 		validate(input);
 
 		return input;
 	}
 
-	private void showSalesRecord() {
-		SalesRecord salesRecord = SalesRecord.getInstance();
-		salesRecord.showAllRecord();
+	private void showMessage() {
+		Cart cart = Cart.getInstance();
+		cart.showAllOrders();
 	}
 
 	private void validate(int input) {
-		if (input != 1) {
+		if (input != 1 && input != 2) {
 			throw new IllegalArgumentException();
 		}
 	}

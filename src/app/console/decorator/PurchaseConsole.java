@@ -5,12 +5,12 @@ import app.console.ConsoleDecorator;
 import app.menu.Category;
 import app.menu.Product;
 
-public class Purchase extends ConsoleDecorator {
+public class PurchaseConsole extends ConsoleDecorator {
 
 	private final int categoryNumber;
 	private final int itemNumber;
 
-	public Purchase(Console console, int categoryNumber, int itemNumber) {
+	public PurchaseConsole(Console console, int categoryNumber, int itemNumber) {
 		super(console);
 		this.categoryNumber = categoryNumber;
 		this.itemNumber = itemNumber;

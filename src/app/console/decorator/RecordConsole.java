@@ -2,29 +2,30 @@ package app.console.decorator;
 
 import app.console.Console;
 import app.console.ConsoleDecorator;
+import app.container.SalesRecord;
 
-public class OrderCancel extends ConsoleDecorator {
+public class RecordConsole extends ConsoleDecorator {
 
-	public OrderCancel(Console console) {
+	public RecordConsole(Console console) {
 		super(console);
 	}
 
 	@Override
 	public int request() {
-		showMessage();
+		showSalesRecord();
 		int input = super.request();
 		validate(input);
 
 		return input;
 	}
 
-	private void showMessage() {
-		System.out.println("진행하던 주문을 취소하시겠습니까?");
-		System.out.println("1. 확인\t\t\t2. 취소");
+	private void showSalesRecord() {
+		SalesRecord salesRecord = SalesRecord.getInstance();
+		salesRecord.showAllRecord();
 	}
 
 	private void validate(int input) {
-		if (input != 1 && input != 2) {
+		if (input != 1) {
 			throw new IllegalArgumentException();
 		}
 	}

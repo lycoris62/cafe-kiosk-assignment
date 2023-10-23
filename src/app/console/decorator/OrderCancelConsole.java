@@ -2,11 +2,10 @@ package app.console.decorator;
 
 import app.console.Console;
 import app.console.ConsoleDecorator;
-import app.container.Cart;
 
-public class OrderProcess extends ConsoleDecorator {
+public class OrderCancelConsole extends ConsoleDecorator {
 
-	public OrderProcess(Console console) {
+	public OrderCancelConsole(Console console) {
 		super(console);
 	}
 
@@ -20,8 +19,8 @@ public class OrderProcess extends ConsoleDecorator {
 	}
 
 	private void showMessage() {
-		Cart cart = Cart.getInstance();
-		cart.showAllOrders();
+		System.out.println("진행하던 주문을 취소하시겠습니까?");
+		System.out.println("1. 확인\t\t\t2. 취소");
 	}
 
 	private void validate(int input) {

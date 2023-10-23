@@ -4,7 +4,7 @@ import app.console.Console;
 import app.console.ConsoleDecorator;
 import app.menu.Category;
 
-public class ItemMenu extends ConsoleDecorator {
+public class ItemMenuConsole extends ConsoleDecorator {
 
 	private final String initMessage = """
   
@@ -13,7 +13,7 @@ public class ItemMenu extends ConsoleDecorator {
 		""";
 	private int categoryNumber;
 
-	public ItemMenu(Console console, int categoryNumber) {
+	public ItemMenuConsole(Console console, int categoryNumber) {
 		super(console);
 		this.categoryNumber = categoryNumber;
 	}
