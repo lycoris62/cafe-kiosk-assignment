@@ -73,7 +73,8 @@ public class Cart {
 
 	private int getTotalPrice() {
 		return cart.stream()
-			.mapToInt(order -> order.getItemList().get(0).getPrice())
+			.flatMap(order -> order.getItemList().stream())
+			.mapToInt(Item::getPrice)
 			.sum();
 	}
 }
