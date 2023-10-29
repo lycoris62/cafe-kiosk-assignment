@@ -7,7 +7,7 @@ import app.container.Cart;
 
 public class OrderCancelCommand extends Command {
 
-	private final int ORDER_CANCEL_AGREE_NUMBER = 1;
+	private static final int ORDER_CANCEL_AGREE_NUMBER = 1;
 
 	public OrderCancelCommand() {
 	}

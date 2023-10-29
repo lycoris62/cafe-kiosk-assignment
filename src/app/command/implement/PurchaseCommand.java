@@ -14,7 +14,7 @@ import app.menu.Order;
 public class PurchaseCommand extends Command {
 
 	private final int categoryNumber;
-	private final int PURCHASE_AGREE_NUMBER = 1;
+	private static final int PURCHASE_AGREE_NUMBER = 1;
 
 	public PurchaseCommand(int categoryNumber) {
 		this.categoryNumber = categoryNumber;

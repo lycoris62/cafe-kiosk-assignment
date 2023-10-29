@@ -7,7 +7,7 @@ import app.menu.Category;
 
 public class OrderCancelHandler extends Handler {
 
-	private final int ORDER_CANCEL_NUMBER = Category.size() + 2;
+	private static final int ORDER_CANCEL_NUMBER = Category.size() + 2;
 
 	@Override
 	protected boolean check(int menuNumber) {

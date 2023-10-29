@@ -9,7 +9,7 @@ import app.container.SalesRecord;
 public class OrderCommand extends Command {
 
 	private static int waitingNumber = 1;
-	private final int ORDER_CANCEL_NUMBER = 2;
+	private static final int ORDER_CANCEL_NUMBER = 2;
 
 	public OrderCommand() {
 	}

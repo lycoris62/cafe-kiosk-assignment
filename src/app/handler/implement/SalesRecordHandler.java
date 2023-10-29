@@ -6,7 +6,7 @@ import app.handler.Handler;
 
 public class SalesRecordHandler extends Handler {
 
-	private final int SALES_RECORD_NUMBER = 0;
+	private static final int SALES_RECORD_NUMBER = 0;
 
 	@Override
 	protected boolean check(int menuNumber) {
