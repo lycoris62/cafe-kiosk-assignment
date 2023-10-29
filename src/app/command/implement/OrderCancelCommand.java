@@ -21,12 +21,12 @@ public class OrderCancelCommand extends Command {
 
 	private void checkOrderCancel(int checkNumber) {
 		if (checkNumber == ORDER_CANCEL_AGREE_NUMBER) {
-			putCart();
+			clearCart();
 			System.out.println("진행하던 주문이 취소되었습니다.\n");
 		}
 	}
 
-	private void putCart() {
+	private void clearCart() {
 		Cart cart = Cart.getInstance();
 		cart.clear();
 	}
