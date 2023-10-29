@@ -24,19 +24,13 @@ public class PurchaseCommand extends Command {
 	public void execute() {
 		int itemNumber = getItemNumber();
 		int checkNumber = getCheckNumber(itemNumber);
-		purchaseProcessStart(checkNumber, itemNumber);
+		startPurchaseProcess(checkNumber, itemNumber);
 	}
 
-	private void purchaseProcessStart(int checkNumber, int itemNumber) {
+	private void startPurchaseProcess(int checkNumber, int itemNumber) {
 		if (checkNumber == PURCHASE_AGREE_NUMBER) {
 			Order order = orderProcess(itemNumber);
 			putCart(order);
-		}
-	}
-
-	private void showAllOrderedItem(Order order) {
-		for (Item item : order.getItemList()) {
-			System.out.println(item.getName() + " 가 장바구니에 추가되었습니다.");
 		}
 	}
 
@@ -50,16 +44,22 @@ public class PurchaseCommand extends Command {
 		return console.request();
 	}
 
+	private Order orderProcess(int itemNumber) {
+		Order order = createOrder(itemNumber);
+		showAllOrderedItem(order);
+		return order;
+	}
+
 	private Order createOrder(int itemNumber) {
 		Product product = Category.getItem(categoryNumber, itemNumber);
 		Item item = new Item(product);
 		return new Order(List.of(item));
 	}
 
-	private Order orderProcess(int itemNumber) {
-		Order order = createOrder(itemNumber);
-		showAllOrderedItem(order);
-		return order;
+	private void showAllOrderedItem(Order order) {
+		for (Item item : order.getItemList()) {
+			System.out.println(item.getName() + " 가 장바구니에 추가되었습니다.");
+		}
 	}
 
 	private void putCart(Order order) {
