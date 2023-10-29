@@ -12,7 +12,7 @@ public class Cart {
 
 	private final List<Order> cart = new ArrayList<>();
 	private static Cart INSTANCE;
-	private final String totalPriceFormat = """
+	private static final String totalPriceFormat = """
 			   
 			[ Total ]
 			W %.1f
