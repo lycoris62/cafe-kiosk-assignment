@@ -6,12 +6,12 @@ import app.menu.Category;
 
 public class ItemMenuConsole extends ConsoleDecorator {
 
-	private final String initMessage = """
+	private static final String initMessage = """
   
 		"오십이도에 오신걸 환영합니다."
 		아래 메뉴판을 보시고 메뉴를 골라 입력해주세요.
 		""";
-	private int categoryNumber;
+	private final int categoryNumber;
 
 	public ItemMenuConsole(Console console, int categoryNumber) {
 		super(console);
