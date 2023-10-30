@@ -5,6 +5,9 @@ import java.util.Arrays;
 import app.domain.Category;
 import app.domain.Product;
 
+/**
+ * 메뉴 관련 화면 출력을 담당하는 객체
+ */
 public class MenuView {
 
 	private static final int ORDER_NUMBER = Category.size() + 1;
@@ -16,6 +19,9 @@ public class MenuView {
 		아래 메뉴판을 보시고 메뉴를 골라 입력해주세요.
 		""";
 
+	/**
+	 * 메인 화면 출력
+	 */
 	public void showMainMenuMessage() {
 		System.out.println(initMessage);
 		System.out.println("[ 오십이도 MENU ]");
@@ -30,6 +36,10 @@ public class MenuView {
 			.forEach(System.out::println);
 	}
 
+	/**
+	 * 특정 카테고리의 상품 메뉴 화면 출력
+	 * @param categoryNumber
+	 */
 	public void showCategoryMenuMessage(int categoryNumber) {
 		System.out.println(initMessage);
 		System.out.printf(String.format("[ %s MENU ]\n", Category.getCategoryName(categoryNumber)));

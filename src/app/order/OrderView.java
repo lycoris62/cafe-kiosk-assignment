@@ -6,6 +6,9 @@ import java.util.Map;
 import app.domain.Item;
 import app.domain.Product;
 
+/**
+ * 주문 관련 화면 출력을 담당하는 객체
+ */
 public class OrderView {
 
 	private static final String totalPriceFormat = """
@@ -15,6 +18,10 @@ public class OrderView {
 			
 			""";
 
+	/**
+	 * 특정 상품을 고른 것이 맞는지 확인하는 화면을 출력
+	 * @param product
+	 */
 	public void showAskingAddCartMessage(Product product) {
 		System.out.println();
 		System.out.println(product);
@@ -22,14 +29,24 @@ public class OrderView {
 		System.out.println("1. 확인            2. 취소");
 	}
 
+	/**
+	 * 장바구니 추가 확정 화면을 출력
+	 * @param itemName
+	 */
 	public void showAddSuccessMessage(String itemName) {
 		System.out.println(itemName + " 가 장바구니에 추가되었습니다.");
 	}
 
+	/**
+	 * 장바구니가 비어있음을 알리는 화면 출력
+	 */
 	public void showEmptyCartMessage() {
 		System.out.println("장바구니가 비어있습니다.");
 	}
 
+	/**
+	 * 장바구니 내의 모든 상품들을 출력 후 주문 확인을 받는 화면 출력
+	 */
 	public void showAllItemsInCart(Cart cart) {
 		System.out.println("아래와 같이 주문 하시겠습니까?\n");
 		System.out.println("[ Orders ]");
@@ -58,6 +75,9 @@ public class OrderView {
 			.sum();
 	}
 
+	/**
+	 * 주문 완료 확정 및 대기번호 화면을 출력
+	 */
 	public void showOrderFinishMessage(int waitingNumber) {
 		System.out.println("주문이 완료되었습니다!\n");
 		System.out.printf("""
@@ -66,15 +86,24 @@ public class OrderView {
 			""", waitingNumber);
 	}
 
+	/**
+	 * 주문 취소를 확인받는 화면 출력
+	 */
 	public void showOrderCancelMessage() {
 		System.out.println("진행하던 주문을 취소하시겠습니까?");
 		System.out.println("1. 확인\t\t\t2. 취소");
 	}
 
+	/**
+	 * 주문 취소 성공 화면 출력
+	 */
 	public void showOrderCancelSuccessMessage() {
 		System.out.println("진행하던 주문이 취소되었습니다.\n");
 	}
 
+	/**
+	 * 총 판매 실적 화면 출력
+	 */
 	public void showAllRecord(SalesRecord salesRecord) {
 		System.out.println("\n[ 총 판매금액 현황 ]");
 		System.out.printf("현재까지 총 판매된 금액은 [ W %.1f ] 입니다.\n\n", getTotalPrice(salesRecord) / 1000.0);

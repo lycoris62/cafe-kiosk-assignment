@@ -5,6 +5,9 @@ import java.util.List;
 
 import app.domain.Item;
 
+/**
+ * 총 판매 실적을 저장하는 객체
+ */
 public class SalesRecord {
 
 	private final List<Item> salesRecord = new ArrayList<>();

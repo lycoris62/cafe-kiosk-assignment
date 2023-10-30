@@ -5,6 +5,9 @@ import java.util.List;
 
 import app.domain.Item;
 
+/**
+ * 장바구니 객체로
+ */
 public class Cart {
 
 	private final List<Item> itemList = new ArrayList<>();
