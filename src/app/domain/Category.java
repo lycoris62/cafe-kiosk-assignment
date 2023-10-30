@@ -70,18 +70,6 @@ public enum Category {
 		return Category.values().length;
 	}
 
-	public static void showCategory() {
-		for (Category category : Category.values()) {
-			System.out.println(category.toString());
-		}
-	}
-
-	public static void showCategoryProduct(int categoryNumber) {
-		for (Product item : Category.getCategoryItems(categoryNumber)) {
-			System.out.println(item.toString());
-		}
-	}
-
 	@Override
 	public String toString() {
 		return String.format("%d. %-20s | %s", categoryId, menuName, description);
