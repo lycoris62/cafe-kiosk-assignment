@@ -1,6 +1,6 @@
-package app.menu;
+package app.domain;
 
-import static app.menu.Product.*;
+import static app.domain.Product.*;
 
 import java.util.List;
 
@@ -68,18 +68,6 @@ public enum Category {
 
 	public static int size() {
 		return Category.values().length;
-	}
-
-	public static void showCategory() {
-		for (Category category : Category.values()) {
-			System.out.println(category.toString());
-		}
-	}
-
-	public static void showCategoryProduct(int categoryNumber) {
-		for (Product item : Category.getCategoryItems(categoryNumber)) {
-			System.out.println(item.toString());
-		}
 	}
 
 	@Override
