@@ -1,4 +1,4 @@
-package app.menu;
+package app.domain;
 
 public class Menu {
 	protected final String name;

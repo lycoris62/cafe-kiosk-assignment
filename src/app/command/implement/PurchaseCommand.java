@@ -6,10 +6,10 @@ import app.command.Command;
 import app.console.Console;
 import app.console.ConsoleFactory;
 import app.container.Cart;
-import app.menu.Category;
-import app.menu.Product;
-import app.menu.Item;
-import app.menu.Order;
+import app.domain.Category;
+import app.domain.Product;
+import app.domain.Item;
+import app.domain.Order;
 
 public class PurchaseCommand extends Command {
 

@@ -2,8 +2,8 @@ package app.console.decorator;
 
 import app.console.Console;
 import app.console.ConsoleDecorator;
-import app.menu.Category;
-import app.menu.Product;
+import app.domain.Category;
+import app.domain.Product;
 
 public class PurchaseConsole extends ConsoleDecorator {
 

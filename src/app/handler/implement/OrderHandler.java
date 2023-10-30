@@ -2,7 +2,7 @@ package app.handler.implement;
 
 import app.command.implement.OrderCommand;
 import app.handler.Handler;
-import app.menu.Category;
+import app.domain.Category;
 
 public class OrderHandler extends Handler {
 

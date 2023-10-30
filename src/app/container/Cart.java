@@ -5,8 +5,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import app.menu.Item;
-import app.menu.Order;
+import app.domain.Item;
+import app.domain.Order;
 
 public class Cart {
 

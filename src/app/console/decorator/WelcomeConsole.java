@@ -2,7 +2,7 @@ package app.console.decorator;
 
 import app.console.Console;
 import app.console.ConsoleDecorator;
-import app.menu.Category;
+import app.domain.Category;
 
 public class WelcomeConsole extends ConsoleDecorator {
 

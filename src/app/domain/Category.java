@@ -1,6 +1,6 @@
-package app.menu;
+package app.domain;
 
-import static app.menu.Product.*;
+import static app.domain.Product.*;
 
 import java.util.List;
 

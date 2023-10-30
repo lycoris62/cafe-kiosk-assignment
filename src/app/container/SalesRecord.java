@@ -3,8 +3,8 @@ package app.container;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.menu.Item;
-import app.menu.Order;
+import app.domain.Item;
+import app.domain.Order;
 
 public class SalesRecord {
 
