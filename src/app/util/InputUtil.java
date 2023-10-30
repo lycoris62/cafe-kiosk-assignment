@@ -10,6 +10,8 @@ public final class InputUtil { // 유틸 클래스로 상속, 생성 불가능
 	private static final int MENU_LENGTH = Category.values().length + 2;
 	private static final Scanner scanner = new Scanner(System.in);
 
+	private InputUtil() {}
+
 	/**
 	 * 잘못된 입력 받을 시 계속 입력을 받도록 하는 함수.
 	 *
