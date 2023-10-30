@@ -8,6 +8,7 @@ import app.domain.Category;
 public final class InputUtil { // 유틸 클래스로 상속, 생성 불가능
 
 	private static final int MENU_LENGTH = Category.values().length + 2;
+	private static final Scanner scanner = new Scanner(System.in);
 
 	/**
 	 * 잘못된 입력 받을 시 계속 입력을 받도록 하는 함수.
@@ -18,13 +19,13 @@ public final class InputUtil { // 유틸 클래스로 상속, 생성 불가능
 	private static int validate(Predicate<Integer> validator) {
 		while (true) {
 			try {
-				Scanner scanner = new Scanner(System.in);
 				int number = scanner.nextInt(); // 정수가 아니라면 예외 발생으로 다시 입력 받음
 				validate(validator, number); // 올바른 입력이 아니라면 예외 발생으로 다시 입력 받음
 
 				return number;
 			} catch (RuntimeException e) {
 				System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+				scanner.nextLine(); // 버퍼에 남은 값들 제거
 			}
 		}
 	}
