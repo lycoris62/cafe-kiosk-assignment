@@ -1,6 +1,5 @@
 package app.handler.implement;
 
-import app.command.CommandRunner;
 import app.command.implement.OrderCancelCommand;
 import app.handler.Handler;
 import app.menu.Category;
@@ -15,7 +14,8 @@ public class OrderCancelHandler extends Handler {
 	}
 
 	@Override
-	protected void process(CommandRunner runner, int menuNumber) {
-		runner.setCommand(new OrderCancelCommand());
+	protected void process(int menuNumber) {
+		OrderCancelCommand command = new OrderCancelCommand();
+		command.execute();
 	}
 }

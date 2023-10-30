@@ -1,7 +1,5 @@
 package app.handler;
 
-import app.command.CommandRunner;
-
 public abstract class Handler {
 
 	protected Handler nextHandler;
@@ -11,16 +9,16 @@ public abstract class Handler {
 		return handler;
 	}
 
-	protected abstract boolean check(int menuNumber);
-
-	protected abstract void process(CommandRunner runner, int menuNumber);
-
-	public void handle(CommandRunner runner, int menuNumber) {
+	public void handle(int menuNumber) {
 		if (check(menuNumber)) {
-			process(runner, menuNumber);
+			process(menuNumber);
 			return;
 		}
 
-		nextHandler.handle(runner, menuNumber);
+		nextHandler.handle(menuNumber);
 	}
+
+	protected abstract boolean check(int menuNumber);
+
+	protected abstract void process(int menuNumber);
 }

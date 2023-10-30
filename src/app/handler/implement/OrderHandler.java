@@ -1,6 +1,5 @@
 package app.handler.implement;
 
-import app.command.CommandRunner;
 import app.command.implement.OrderCommand;
 import app.handler.Handler;
 import app.menu.Category;
@@ -15,7 +14,8 @@ public class OrderHandler extends Handler {
 	}
 
 	@Override
-	protected void process(CommandRunner runner, int menuNumber) {
-		runner.setCommand(new OrderCommand());
+	protected void process(int menuNumber) {
+		OrderCommand command = new OrderCommand();
+		command.execute();
 	}
 }

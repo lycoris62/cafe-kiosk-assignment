@@ -1,29 +1,33 @@
 package app;
 
-import app.command.CommandRunner;
+import app.console.BaseConsole;
+import app.console.decorator.WelcomeConsole;
+import app.handler.Handler;
+import app.handler.implement.OrderCancelHandler;
+import app.handler.implement.OrderHandler;
+import app.handler.implement.PurchaseHandler;
+import app.handler.implement.SalesRecordHandler;
 
 public class CafeKioskApp {
-
-	private static final CommandRunner commandRunner = new CommandRunner();
 
 	private CafeKioskApp() {}
 
 	public static void run() {
 		while (true) {
-			try {
-				commandRunner.init();
-				commandRunner.run();
-			} catch (IllegalArgumentException e) {
-				System.out.println("잘못된 입력으로 3초 뒤 메인 메뉴판 화면으로 이동합니다.");
-				waitForThreeSeconds();
-			}
+			WelcomeConsole welcomeConsole = new WelcomeConsole(new BaseConsole());
+			int menuNumber = welcomeConsole.request();
+
+			Handler rootHandler = settingHandler();
+			rootHandler.handle(menuNumber);
 		}
 	}
 
-	private static void waitForThreeSeconds() {
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException ignored) {
-		}
+	private static Handler settingHandler() {
+		Handler rootHandler = new SalesRecordHandler();
+		rootHandler
+			.setNext(new PurchaseHandler())
+			.setNext(new OrderHandler())
+			.setNext(new OrderCancelHandler());
+		return rootHandler;
 	}
 }

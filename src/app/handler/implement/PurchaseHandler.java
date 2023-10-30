@@ -1,6 +1,5 @@
 package app.handler.implement;
 
-import app.command.CommandRunner;
 import app.command.implement.PurchaseCommand;
 import app.handler.Handler;
 import app.menu.Category;
@@ -16,7 +15,8 @@ public class PurchaseHandler extends Handler {
 	}
 
 	@Override
-	protected void process(CommandRunner runner, int menuNumber) {
-		runner.setCommand(new PurchaseCommand(menuNumber));
+	protected void process(int menuNumber) {
+		PurchaseCommand command = new PurchaseCommand(menuNumber);
+		command.execute();
 	}
 }

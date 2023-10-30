@@ -1,6 +1,5 @@
 package app.handler.implement;
 
-import app.command.CommandRunner;
 import app.command.implement.SalesRecordCommand;
 import app.handler.Handler;
 
@@ -14,7 +13,8 @@ public class SalesRecordHandler extends Handler {
 	}
 
 	@Override
-	protected void process(CommandRunner runner, int menuNumber) {
-		runner.setCommand(new SalesRecordCommand());
+	protected void process(int menuNumber) {
+		SalesRecordCommand command = new SalesRecordCommand();
+		command.execute();
 	}
 }
