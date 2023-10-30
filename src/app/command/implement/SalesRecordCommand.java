@@ -6,9 +6,6 @@ import app.console.ConsoleFactory;
 
 public class SalesRecordCommand extends Command {
 
-	public SalesRecordCommand() {
-	}
-
 	@Override
 	public void execute() {
 		Console console = ConsoleFactory.getRecord();

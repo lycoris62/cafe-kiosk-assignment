@@ -11,9 +11,6 @@ public class OrderCommand extends Command {
 	private static int waitingNumber = 1;
 	private static final int ORDER_CANCEL_NUMBER = 2;
 
-	public OrderCommand() {
-	}
-
 	@Override
 	public void execute() {
 		Cart cart = Cart.getInstance();

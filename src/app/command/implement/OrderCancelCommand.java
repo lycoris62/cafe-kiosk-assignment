@@ -9,9 +9,6 @@ public class OrderCancelCommand extends Command {
 
 	private static final int ORDER_CANCEL_AGREE_NUMBER = 1;
 
-	public OrderCancelCommand() {
-	}
-
 	@Override
 	public void execute() {
 		Console console = ConsoleFactory.getOrderCancel();
