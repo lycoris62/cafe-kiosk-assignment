@@ -12,7 +12,7 @@ public class Cart {
 
 	private final List<Order> cart = new ArrayList<>();
 	private static Cart INSTANCE;
-	private final String totalPriceFormat = """
+	private static final String totalPriceFormat = """
 			   
 			[ Total ]
 			W %.1f
@@ -73,7 +73,8 @@ public class Cart {
 
 	private int getTotalPrice() {
 		return cart.stream()
-			.mapToInt(order -> order.getItemList().get(0).getPrice())
+			.flatMap(order -> order.getItemList().stream())
+			.mapToInt(Item::getPrice)
 			.sum();
 	}
 }

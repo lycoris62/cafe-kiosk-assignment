@@ -25,7 +25,7 @@ public class CommandRunner {
 		int menuNumber = console.request();
 
 		Handler rootHandler = settingHandler();
-		rootHandler.run(this, menuNumber);
+		rootHandler.handle(this, menuNumber);
 	}
 
 	private Handler settingHandler() {

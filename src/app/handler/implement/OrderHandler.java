@@ -7,7 +7,7 @@ import app.menu.Category;
 
 public class OrderHandler extends Handler {
 
-	private final int ORDER_NUMBER = Category.size() + 1;
+	private static final int ORDER_NUMBER = Category.size() + 1;
 
 	@Override
 	protected boolean check(int menuNumber) {

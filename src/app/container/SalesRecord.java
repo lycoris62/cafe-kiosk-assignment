@@ -36,15 +36,15 @@ public class SalesRecord {
 
 	private int getTotalPrice() {
 		return salesRecord.stream()
-			.mapToInt(order -> order.getItemList().get(0).getPrice())
+			.flatMap(order -> order.getItemList().stream())
+			.mapToInt(Item::getPrice)
 			.sum();
 	}
 
 	private void showAllSalesRecord() {
-		for (Order order : salesRecord) {
-			for (Item item : order.getItemList()) {
-				System.out.println("- " + item);
-			}
-		}
+		salesRecord.stream()
+			.flatMap(order -> order.getItemList().stream())
+			.map(item -> "- " + item)
+			.forEach(System.out::println);
 	}
 }

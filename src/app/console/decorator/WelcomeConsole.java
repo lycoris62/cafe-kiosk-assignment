@@ -6,11 +6,12 @@ import app.menu.Category;
 
 public class WelcomeConsole extends ConsoleDecorator {
 
-	private final String initMessage = """
+	private static final String initMessage = """
   
 		"오십이도에 오신걸 환영합니다."
 		아래 메뉴판을 보시고 메뉴를 골라 입력해주세요.
 		""";
+	private static final int MENU_LENGTH = Category.values().length + 2;
 
 	public WelcomeConsole(Console console) {
 		super(console);
@@ -37,9 +38,7 @@ public class WelcomeConsole extends ConsoleDecorator {
 	}
 
 	private void validate(int input) {
-		int menuCount = Category.values().length + 2;
-
-		if (input < 0 || menuCount < input) {
+		if (input < 0 || MENU_LENGTH < input) {
 			throw new IllegalArgumentException();
 		}
 	}

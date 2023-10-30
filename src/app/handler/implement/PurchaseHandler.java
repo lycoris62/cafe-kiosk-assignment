@@ -7,8 +7,8 @@ import app.menu.Category;
 
 public class PurchaseHandler extends Handler {
 
-	private final int MENU_START_NUMBER = 1;
-	private final int MENU_END_NUMBER = Category.size();
+	private static final int MENU_START_NUMBER = 1;
+	private static final int MENU_END_NUMBER = Category.size();
 
 	@Override
 	protected boolean check(int menuNumber) {
