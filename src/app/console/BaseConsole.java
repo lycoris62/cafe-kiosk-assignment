@@ -1,17 +1,16 @@
 package app.console;
 
-import app.console.input.Input;
-import app.console.input.ScannerInput;
+import java.util.Scanner;
 
 public class BaseConsole implements Console {
 
-	private final Input input = new ScannerInput();
+	private final Scanner scanner = new Scanner(System.in);
 
 	public BaseConsole() {
 	}
 
 	@Override
 	public int request() {
-		return input.read();
+		return scanner.nextInt();
 	}
 }
