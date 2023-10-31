@@ -18,7 +18,7 @@ public final class InputUtil { // 유틸 클래스로 상속, 생성 불가능
 	 * @param validator 올바른 입력을 검증하는 람다식
 	 * @return 검증된 입력 번호를 리턴
 	 */
-	private static int validate(Predicate<Integer> validator) {
+	private static int readWithValidator(Predicate<Integer> validator) {
 		while (true) {
 			try {
 				int number = scanner.nextInt(); // 정수가 아니라면 예외 발생으로 다시 입력 받음
@@ -42,7 +42,7 @@ public final class InputUtil { // 유틸 클래스로 상속, 생성 불가능
 	 * 메인화면에서 메뉴 번호를 입력 받음
 	 */
 	public static int readMenuNumber() {
-		return validate(input -> (0 <= input && input <= MENU_LENGTH));
+		return readWithValidator(input -> (0 <= input && input <= MENU_LENGTH));
 	}
 
 	/**
@@ -51,7 +51,7 @@ public final class InputUtil { // 유틸 클래스로 상속, 생성 불가능
 	 * @param categoryNumber 특정 카테고리 번호
 	 */
 	public static int readProductNumber(int categoryNumber) {
-		return validate(input -> (0 < input && input <= getCategorySize(categoryNumber)));
+		return readWithValidator(input -> (0 < input && input <= getCategorySize(categoryNumber)));
 	}
 
 	private static int getCategorySize(int categoryNumber) {
@@ -62,27 +62,27 @@ public final class InputUtil { // 유틸 클래스로 상속, 생성 불가능
 	 * 장바구니 추가를 확인하는 번호를 입력 받음
 	 */
 	public static int readAddCartCheckNumber() {
-		return validate(input -> (input == 1 || input == 2));
+		return readWithValidator(input -> (input == 1 || input == 2));
 	}
 
 	/**
 	 * 주문을 확인하는 번호를 입력 받음
 	 */
 	public static int readOrderCheckNumber() {
-		return validate(input -> (input == 1 || input == 2));
+		return readWithValidator(input -> (input == 1 || input == 2));
 	}
 
 	/**
 	 * 주문 취소를 확인하는 번호를 입력 받음
 	 */
 	public static int readOrderCancelCheckNumber() {
-		return validate(input -> (input == 1 || input == 2));
+		return readWithValidator(input -> (input == 1 || input == 2));
 	}
 
 	/**
 	 * 판매실적 확인 후 메인 화면으로 돌아갈지를 확인하는 번호를 입력 받음
 	 */
 	public static int readReturnMenuCheckNumber() {
-		return validate(input -> input == 1);
+		return readWithValidator(input -> input == 1);
 	}
 }
